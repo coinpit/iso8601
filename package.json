@@ -1,0 +1,17 @@
+{
+  "name": "utc",
+  "version": "1.0.0",
+  "description": "utc strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs/*.js"
+  },
+  "keywords": [
+    "utc"
+  ],
+  "author": "@coinpit",
+  "license": "MIT",
+  "devDependencies": {
+    "expect.js": "^0.3.1"
+  }
+}

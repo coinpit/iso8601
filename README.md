@@ -1,4 +1,5 @@
 # iso8601
+[![Circle CI](https://circleci.com/gh/coinpit/iso8601.svg?style=shield)](https://circleci.com/gh/coinpit/iso8601)
 ## Convert time to UTC and print
 
 ### Get Date in ISO 9661 format
