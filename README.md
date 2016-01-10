@@ -1,4 +1,4 @@
-# utc
+# iso8601
 ## Convert time to UTC and print
 
 ### Get Date in ISO 9661 format
