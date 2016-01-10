@@ -1,6 +1,6 @@
 {
   "name": "iso8601.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Format dates as ISO 8601",
   "main": "index.js",
   "scripts": {
