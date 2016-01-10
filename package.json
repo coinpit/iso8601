@@ -1,13 +1,13 @@
 {
-  "name": "utc",
+  "name": "iso8601.js",
   "version": "1.0.0",
-  "description": "utc strings",
+  "description": "Format dates as ISO 8601",
   "main": "index.js",
   "scripts": {
     "test": "mocha specs/*.js"
   },
   "keywords": [
-    "utc"
+    "iso8601 date moment"
   ],
   "author": "@coinpit",
   "license": "MIT",
