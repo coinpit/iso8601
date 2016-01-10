@@ -1,22 +1,49 @@
-var expect = require('expect.js')
-var utc    = require('../index')
+var expect  = require('expect.js')
+var moment  = require('moment')
+var iso8601 = require('../index')
 
 describe('UTC conversion and printing', function() {
-  var now = new Date(1452392210803)
+  var ltz     = moment()
+  var now     = ltz.toDate()
+  var utczone = ltz.clone().utc()
 
-  it('Should return date in ISO format', function() {
-    expect(utc.iso(now)).to.equal('2016-01-09T18:16:50.803Z')
+  it('Should return date in ISO format: ' + ltz.format('YYYY-MM-DDTHH:mm:ss.SSS'), function() {
+    var expected = ltz.format('YYYY-MM-DDTHH:mm:ss.SSS')
+    expect(iso8601.iso(now)).to.equal(expected)
   })
 
-  it('Should print HH:mm', function() {
-    expect(utc.hhmm(now)).to.equal('18:16')
+  it('Should return date at UTC in ISO format: ' + utczone.format('YYYY-MM-DDTHH:mm:ss.SSS'), function() {
+    var expected = utczone.format('YYYY-MM-DDTHH:mm:ss.SSS')
+    expect(iso8601.iso(now, true)).to.equal(expected)
   })
 
-  it('Should print MM-DD', function() {
-    expect(utc.mmdd(now)).to.equal('01-09')
+  it('Should return HH:mm: ' + ltz.format('HH:mm') , function() {
+    var expected = ltz.format('HH:mm')
+    expect(iso8601.hhmm(now)).to.equal(expected)
   })
 
-  it('Should print truncated ISO String', function() {
-    expect(utc.longdate(now)).to.equal('2016-01-09T18:16')
+  it('Should return HH:mm at UTC: ' + utczone.format('HH:mm') , function() {
+    var expected = utczone.format('HH:mm')
+    expect(iso8601.hhmm(now, true)).to.equal(expected)
+  })
+
+  it('Should return MM-DD: ' + ltz.format('MM-DD'), function() {
+    var expected = ltz.format('MM-DD')
+    expect(iso8601.mmdd(now)).to.equal(expected)
+  })
+
+  it('Should return MM-DD at UTC: ' + utczone.format('MM-DD'), function() {
+    var expected = utczone.format('MM-DD')
+    expect(iso8601.mmdd(now, true)).to.equal(expected)
+  })
+
+  it('Should return truncated ISO String: ' + ltz.format('YYYY-MM-DDTHH:mm'), function() {
+    var expected = ltz.format('YYYY-MM-DDTHH:mm')
+    expect(iso8601.longdate(now)).to.equal(expected)
+  })
+
+  it('Should return truncated ISO String at UTC: ' + utczone.format('YYYY-MM-DDTHH:mm'), function() {
+    var expected = utczone.format('YYYY-MM-DDTHH:mm')
+    expect(iso8601.longdate(now, true)).to.equal(expected)
   })
 })

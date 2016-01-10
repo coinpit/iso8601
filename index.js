@@ -4,7 +4,8 @@ module.exports = (function() {
 	utc.iso = function(local, isUTC) {
      var offset = local.getTimezoneOffset() * 60 * 1000
 		 var utc = local.getTime() - offset
-		 return isUTC && local.toISOString() || new Date(utc).toISOString()
+		 var iso = isUTC && local.toISOString() || new Date(utc).toISOString()
+		 return iso.substring(0, iso.length-1)
 	}
 
 	utc.hhmm = function(now, isUTC) {
